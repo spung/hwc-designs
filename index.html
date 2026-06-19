@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumanWrittenCode.com — Design Options</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      gap: 48px;
+    }
+    h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: #a78bfa; }
+    p { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 780px;
+      width: 100%;
+    }
+    a.card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #13101f;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: #fff;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    a.card:hover { border-color: #7c3aed; background: #1a1230; }
+    .card-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #a78bfa; }
+    .card-title { font-size: 18px; font-weight: 500; }
+    .card-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+    .arrow { color: #7c3aed; font-size: 20px; margin-top: auto; padding-top: 8px; }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;">
+    <h1>humanwrittencode.com</h1>
+    <p>Three design directions — pick your favourite.</p>
+  </div>
+  <div class="cards">
+    <a class="card" href="option-a-dark-tech.html">
+      <div class="card-label">Option A</div>
+      <div class="card-title">Dark Tech</div>
+      <div class="card-desc">Looks exactly like a modern AI startup. Dark mode, purple accents, very Vercel.</div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="card" href="option-b-artisan-house.html">
+      <div class="card-label">Option B</div>
+      <div class="card-title">Artisan House</div>
+      <div class="card-desc">Luxury craft aesthetic. Serif type, warm cream tones. "Atelier du Code."</div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="card" href="option-c-organic.html">
+      <div class="card-label">Option C</div>
+      <div class="card-title">Organic Certified</div>
+      <div class="card-desc">Parodies organic food labelling. "Code Facts" label, free-range developers.</div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+</body>
+</html>

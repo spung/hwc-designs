@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumanWrittenCode — Option C: Organic Certified</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f6fbf1;
+      --green-pale: #eef7e5;
+      --green-mid: #c5e3a8;
+      --green: #4a7c2a;
+      --green-dark: #2d5016;
+      --green-deep: #1a2e0a;
+      --text-body: #3a5020;
+      --border: #d5ecc2;
+      --border-dark: #b0d490;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--green-deep);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* BANNER */
+    .banner {
+      background: var(--green-pale);
+      border-bottom: 0.5px solid var(--border);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--green);
+      letter-spacing: 0.3px;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--green-deep);
+    }
+
+    .nav-leaf {
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: var(--green);
+    }
+
+    .nav-links a:hover { color: var(--green-dark); }
+
+    .btn-green {
+      background: var(--green-dark);
+      color: #fff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+
+    .btn-green:hover { opacity: 0.85; }
+
+    .btn-outline-green {
+      background: transparent;
+      color: var(--green-dark);
+      border: 1px solid var(--border-dark);
+      padding: 10px 24px;
+      border-radius: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 500;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .btn-outline-green:hover { background: var(--green-pale); border-color: var(--green); }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 80px 48px;
+      gap: 64px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-body);
+      max-width: 440px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .tag {
+      background: var(--green-pale);
+      border: 0.5px solid var(--border);
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--green-dark);
+      font-weight: 500;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* BADGE */
+    .badge {
+      width: 180px;
+      height: 180px;
+      border: 3px solid var(--green-dark);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .badge-top {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .badge-main {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--green-deep);
+      line-height: 1.25;
+    }
+
+    .badge-bottom {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-top: 4px;
+    }
+
+    .badge-sub {
+      font-size: 10px;
+      color: var(--green);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 24px 48px;
+      background: var(--green-pale);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--green-dark);
+      font-weight: 500;
+    }
+
+    .trust-check {
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    /* WHY SECTION */
+    .why {
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .why h2 {
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .why p {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .why-aside {
+      background: var(--green-pale);
+      border: 0.5px solid var(--border);
+      padding: 36px;
+      border-radius: 12px;
+    }
+
+    .why-aside h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .why-aside h3 span {
+      font-size: 12px;
+      background: var(--green);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .compare-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 0.5px solid var(--border);
+      font-size: 14px;
+    }
+
+    .compare-row:last-child { border-bottom: none; }
+
+    .compare-label { color: var(--text-body); }
+
+    .compare-hwc { color: var(--green-dark); font-weight: 500; }
+    .compare-ai { color: #999; }
+
+    /* FEATURES */
+    .features {
+      padding: 80px 48px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .features-header h2 {
+      font-size: 42px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .features-header p {
+      font-size: 16px;
+      color: var(--text-body);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .feature {
+      background: var(--white);
+      padding: 36px 32px;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-pale);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--green-dark);
+      font-size: 20px;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* CODE FACTS */
+    .facts-section {
+      padding: 80px 48px;
+      background: var(--off-white);
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .facts-label {
+      border: 2px solid var(--green-deep);
+      padding: 20px 24px;
+      width: 220px;
+      flex-shrink: 0;
+      background: white;
+    }
+
+    .facts-title {
+      font-size: 26px;
+      font-weight: 700;
+      border-bottom: 8px solid var(--green-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .facts-serving {
+      font-size: 10px;
+      margin-bottom: 8px;
+      border-bottom: 4px solid var(--green-deep);
+      padding-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .facts-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.5px solid #ccc;
+      padding: 4px 0;
+      font-size: 12px;
+    }
+
+    .facts-row:last-of-type { border-bottom: none; }
+    .facts-row .label { color: var(--green-deep); }
+    .facts-row .value { font-weight: 600; color: var(--green-deep); }
+
+    .facts-disclaimer {
+      font-size: 9px;
+      color: var(--green);
+      margin-top: 8px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .facts-copy h2 {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .facts-copy p {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      max-width: 480px;
+    }
+
+    /* PRICING */
+    .pricing {
+      padding: 80px 48px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .pricing-header h2 {
+      font-size: 42px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .pricing-header p {
+      font-size: 15px;
+      color: var(--text-body);
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .plan {
+      background: var(--white);
+      padding: 40px 32px;
+    }
+
+    .plan.featured {
+      background: var(--green-pale);
+    }
+
+    .plan-badge {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-name {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .plan-price {
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      color: var(--green-deep);
+    }
+
+    .plan-note {
+      font-size: 13px;
+      color: var(--text-body);
+      margin-bottom: 28px;
+    }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .plan-features li {
+      font-size: 13px;
+      color: var(--text-body);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .plan-features li::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: var(--green-pale);
+      border: 1px solid var(--border-dark);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%234a7c2a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 80px 48px;
+      border-bottom: 0.5px solid var(--border);
+      background: var(--off-white);
+    }
+
+    .testimonials h2 {
+      font-size: 40px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial {
+      background: white;
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .testimonial p {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .testimonial cite {
+      font-size: 12px;
+      color: var(--green);
+      letter-spacing: 0.5px;
+      font-style: normal;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 96px 48px;
+      text-align: center;
+      background: var(--green-deep);
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 48px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .cta-form input {
+      flex: 1;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 0.5px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .cta-form input::placeholder { color: rgba(255,255,255,0.45); }
+
+    .btn-white {
+      background: white;
+      color: var(--green-deep);
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-pale);
+      border-top: 0.5px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--green);
+    }
+
+    .footer-logo {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--green-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-leaf {
+      width: 16px;
+      height: 16px;
+      background: var(--green);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    Always verify your code is human-written. Demand the documentation. Don't let your codebase be secretly synthetic.
+  </div>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-leaf"></div>
+      HumanWrittenCode
+    </div>
+    <div class="nav-links">
+      <a href="#">Our Developers</a>
+      <a href="#">Certifications</a>
+      <a href="#">Process</a>
+      <a href="#">Pricing</a>
+    </div>
+    <button class="btn-green">Get Certified Code</button>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Non-AI Certified · Est. 2023</div>
+      <h1>Code the way your grandparents would have appreciated.</h1>
+      <p>Free-range. No artificial intelligence added. Sourced directly from human developers working in ethically-lit offices with ergonomic chairs and opinions.</p>
+      <div class="tags">
+        <div class="tag">No LLMs</div>
+        <div class="tag">Grass-fed logic</div>
+        <div class="tag">Free-range syntax</div>
+        <div class="tag">No autocomplete</div>
+        <div class="tag">Human-grade caffeine</div>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-green">Start your order</button>
+        <button class="btn-outline-green">How it works</button>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-top">Certified</div>
+      <div class="badge-main">Human<br>Written<br>Code™</div>
+      <div class="badge-bottom">Non-AI</div>
+      <div class="badge-sub">USDA Analog</div>
+    </div>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-check">✓</div>
+      <span>100% human-typed characters</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-check">✓</div>
+      <span>Zero AI contamination guaranteed</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-check">✓</div>
+      <span>Certified chain of keystroke custody</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-check">✓</div>
+      <span>Each bug traceable to a real person</span>
+    </div>
+  </div>
+
+  <div class="why">
+    <div>
+      <h2>Why does it matter who wrote the code?</h2>
+      <p>You started asking this question around the time you spent three days debugging code that confidently did the wrong thing. AI-generated code works — until it doesn't, and then nobody knows why it was written that way in the first place.</p>
+      <p>Human-written code comes with something the models can't replicate: accountability, context, and someone to call when it breaks. Our code has a face attached to it. Several, actually.</p>
+      <p>The handmade market exists for everything from furniture to cheese to clothing. We saw no reason software should be different. You didn't ask if your Patagonia jacket was machine-knitted. You're starting to ask about your codebase.</p>
+      <button class="btn-outline-green" style="margin-top:8px;">Our story →</button>
+    </div>
+    <div class="why-aside">
+      <h3>HWC vs. AI-generated <span>vs</span></h3>
+      <div class="compare-row">
+        <span class="compare-label">Author accountability</span>
+        <span class="compare-hwc">Named human ✓</span>
+        <span class="compare-ai">None ✗</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Explainable decisions</span>
+        <span class="compare-hwc">Always ✓</span>
+        <span class="compare-ai">Rarely ✗</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Bugs traceable</span>
+        <span class="compare-hwc">Yes ✓</span>
+        <span class="compare-ai">Good luck ✗</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Hallucinates imports</span>
+        <span class="compare-hwc">Never ✓</span>
+        <span class="compare-ai">Frequently ✗</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Soul</span>
+        <span class="compare-hwc">High ✓</span>
+        <span class="compare-ai">Simulated ✗</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Price</span>
+        <span class="compare-hwc">Premium</span>
+        <span class="compare-ai">Cheap</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="features-header">
+      <h2>What "human-written" actually means.</h2>
+      <p>We know it sounds obvious. In 2025, it isn't. Here's exactly what you're getting when you order from us.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <h3>Free-range developers</h3>
+        <p>Our developers work in natural light, take breaks, and form opinions about your architecture. They are not models. They are people. They have children who interrupt calls. We consider this a feature.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M10 14h.01M14 14h.01M18 14h.01"></path></svg>
+        </div>
+        <h3>Hand-typed, every character</h3>
+        <p>Each line of code passes through a human brain before it touches a keyboard. No tab-completions accepted. No suggestions adopted without review. No ghost-written code in our products.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3>No AI residue — guaranteed</h3>
+        <p>We test every commit. Our developers work without AI tools enabled. We audit their environments monthly. Zero tolerance policy. Violators are let go. Yes, this has happened.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <h3>Full documentation of origin</h3>
+        <p>We provide a chain-of-custody record: who wrote it, when, on what machine, in what mental state (roughly). Your legal team will appreciate this in 2027. Trust us on this one.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <h3>Genuinely slow turnaround</h3>
+        <p>We will not compete with AI on speed. A human needs time to think. Our timelines reflect this honestly. If you need code in four hours, we are not your vendor. We say this warmly.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </div>
+        <h3>Bugs with a face attached</h3>
+        <p>Every bug in our code has a human responsible for it. Their name is in the git log. You can email them. They will feel bad about it. This is fundamentally different from AI-generated errors.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="facts-section">
+    <div class="facts-label">
+      <div class="facts-title">Code Facts</div>
+      <div class="facts-serving">Per 1,000 lines of code</div>
+      <div class="facts-row"><span class="label">AI tokens</span><span class="value">0g</span></div>
+      <div class="facts-row"><span class="label">Human error</span><span class="value">100%</span></div>
+      <div class="facts-row"><span class="label">Strong opinions</span><span class="value">47</span></div>
+      <div class="facts-row"><span class="label">Passive-aggressive comments</span><span class="value">3–5</span></div>
+      <div class="facts-row"><span class="label">Coffee consumed</span><span class="value">∞ cups</span></div>
+      <div class="facts-row"><span class="label">Hallucinated imports</span><span class="value">0</span></div>
+      <div class="facts-row"><span class="label">Soul content</span><span class="value">High</span></div>
+      <div class="facts-disclaimer">* "Soul" is not a regulated claim. But you know it when you see it. Not valid in jurisdictions where vibes are legally unrecognized.</div>
+    </div>
+    <div class="facts-copy">
+      <h2>Because in 2025, "human-written" needs to be on the packaging.</h2>
+      <p>We didn't make the world this way. We just noticed that nobody was putting it on the label. So we did.</p>
+      <p>The organic food market exists because people wanted to know what was in their food. We think software is next. When you deploy a codebase, you should know whether a person wrote it or a machine predicted it.</p>
+      <p>We're not anti-AI. We're pro-transparency. And we are, definitively, the human option.</p>
+      <button class="btn-outline-green" style="margin-top:8px;">Read our manifesto →</button>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <div class="pricing-header">
+      <h2>What humans cost.</h2>
+      <p>More than AI. Less than the therapy you'll need after debugging AI-generated code for six months.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">Seedling</div>
+        <div class="plan-price">$350<span style="font-size:17px;color:var(--text-body);font-weight:400">/hr</span></div>
+        <div class="plan-note">One developer. One project. Full humanity.</div>
+        <ul class="plan-features">
+          <li>Up to 1,000 lines per engagement</li>
+          <li>Certificate of human authorship</li>
+          <li>Git history with real names</li>
+          <li>One revision round</li>
+          <li>Bug reports with a real person to blame</li>
+        </ul>
+        <button class="btn-outline-green" style="width:100%;padding:12px;border-radius:8px;">Start an order</button>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Most requested</div>
+        <div class="plan-name">Grove</div>
+        <div class="plan-price">$850<span style="font-size:17px;color:var(--text-body);font-weight:400">/hr</span></div>
+        <div class="plan-note">Senior human. Comes with unprompted opinions about your architecture.</div>
+        <ul class="plan-features">
+          <li>Unlimited scope</li>
+          <li>Named senior developer, certified</li>
+          <li>Architecture decisions you can explain</li>
+          <li>Code annotated with actual reasoning</li>
+          <li>Ongoing availability for questions</li>
+          <li>Priority queue access</li>
+        </ul>
+        <button class="btn-green" style="width:100%;padding:13px;border-radius:8px;">Join the waitlist</button>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Canopy</div>
+        <div class="plan-price">Let's talk</div>
+        <div class="plan-note">Full team. Embedded humans. The whole ecosystem.</div>
+        <ul class="plan-features">
+          <li>Dedicated human development team</li>
+          <li>On-site or remote, both equally slow</li>
+          <li>Annual provenance audit</li>
+          <li>Carbon-neutral keystrokes (certified)</li>
+          <li>Executive human handshake at delivery</li>
+          <li>Your logo on our website (as a client, not a partner)</li>
+        </ul>
+        <button class="btn-outline-green" style="width:100%;padding:12px;border-radius:8px;">Get in touch</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <h2>From people who've seen both sides.</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"We used AI to build our MVP. It was fast. Then we raised our Series A and hired engineers to review it. They quit after two weeks. We called HumanWrittenCode."</p>
+        <cite>— CTO, a startup you might have heard of</cite>
+      </div>
+      <div class="testimonial">
+        <p>"I asked my AI assistant to write a function. It did. It worked. I asked it why it made certain decisions. It explained confidently. Later I discovered the explanation was invented. The code still runs. I don't know how to feel."</p>
+        <cite>— Lead Engineer, financial services firm</cite>
+      </div>
+      <div class="testimonial">
+        <p>"They delivered it late. They sent an apology. A real one, from a person, explaining what happened. I've never felt more confident about a vendor."</p>
+        <cite>— Product Manager, enterprise software company</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Order your code<br>before humans stop<br>writing it.</h2>
+    <p>Join the waitlist. We'll reach out personally. By email. Written by a human who read your form submission.</p>
+    <div class="cta-form">
+      <input type="email" placeholder="your@email.com">
+      <button class="btn-white">Join waitlist</button>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:16px;">Current wait time: 6–8 human weeks. No, we can't speed it up.</p>
+  </div>
+
+  <footer>
+    <div class="footer-logo">
+      <div class="footer-leaf"></div>
+      HumanWrittenCode
+    </div>
+    <div>humanwrittencode.com — All code written by actual people</div>
+    <div>© 2025 Human Written Code, Inc.</div>
+  </footer>
+
+</body>
+</html>
