@@ -405,6 +405,40 @@
       color: var(--accent-light);
       letter-spacing: 2px;
     }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 20px 48px; }
+      .hero h1 { font-size: 38px; letter-spacing: -1px; }
+      .hero p { font-size: 16px; }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .hero-btns button { width: 100%; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 0.5px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .features { grid-template-columns: 1fr; }
+      .section { padding: 56px 20px; }
+      .section h2 { font-size: 30px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .testimonial-section { padding: 56px 20px; }
+      .testimonial-section blockquote { font-size: 18px; }
+      .pricing { padding: 56px 20px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .plan.featured { margin: 0; }
+      .cta-section { padding: 64px 20px; }
+      .cta-section h2 { font-size: 34px; }
+      .cta-section > div { flex-direction: column; }
+      .cta-section > div input,
+      .cta-section > div button { width: 100%; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 30px; }
+      .steps { grid-template-columns: 1fr; }
+      .stat-number { font-size: 28px; }
+    }
   </style>
 </head>
 <body>

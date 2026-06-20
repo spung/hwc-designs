@@ -691,6 +691,41 @@
       transform: rotate(-45deg);
       flex-shrink: 0;
     }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; flex-wrap: wrap; gap: 12px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 48px 20px; gap: 36px; }
+      .hero h1 { font-size: 34px; }
+      .badge { width: 140px; height: 140px; margin: 0 auto; }
+      .trust-bar { flex-direction: column; gap: 14px; align-items: flex-start; padding: 20px; }
+      .why { grid-template-columns: 1fr; gap: 36px; padding: 56px 20px; }
+      .why h2 { font-size: 30px; }
+      .features { padding: 56px 20px; }
+      .features-header h2 { font-size: 30px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .facts-section { flex-direction: column; gap: 36px; padding: 56px 20px; align-items: flex-start; }
+      .facts-copy h2 { font-size: 28px; }
+      .pricing { padding: 56px 20px; }
+      .pricing-header h2 { font-size: 30px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonials { padding: 56px 20px; }
+      .testimonials h2 { font-size: 30px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 20px; }
+      .cta-section h2 { font-size: 34px; }
+      .cta-form { flex-direction: column; }
+      .cta-form input, .cta-form button { width: 100%; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
+      .footer-logo { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+      .tags { gap: 8px; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns button { width: 100%; }
+    }
   </style>
 </head>
 <body>

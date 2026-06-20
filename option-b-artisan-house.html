@@ -587,6 +587,42 @@
       font-style: italic;
       color: var(--ink);
     }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      nav { padding: 18px 20px; flex-wrap: wrap; gap: 12px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 20px 56px; }
+      .hero h1 { font-size: 40px; }
+      .hero-quote { font-size: 16px; }
+      .philosophy { grid-template-columns: 1fr; padding: 48px 20px; gap: 32px; }
+      .pillar { padding: 0; border-right: none; border-bottom: 0.5px solid var(--border); padding-bottom: 28px; }
+      .pillar:last-child { border-bottom: none; padding-bottom: 0; }
+      .manifesto { grid-template-columns: 1fr; gap: 36px; padding: 56px 20px; }
+      .services { padding: 56px 20px; }
+      .services-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+      .services-header h2 { font-size: 32px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .process { padding: 64px 20px; }
+      .process h2 { font-size: 32px; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .testimonials { padding: 56px 20px; }
+      .testimonials h2 { font-size: 30px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .certificate-section { padding: 56px 20px; }
+      .certificate { padding: 32px 24px; max-width: 100%; }
+      .pricing { padding: 56px 20px; }
+      .pricing h2 { font-size: 32px; }
+      .pricing-grid { grid-template-columns: 1fr; border: none; gap: 1px; }
+      .tier { border-right: none; border: 0.5px solid var(--border); }
+      .cta-section { padding: 72px 20px; }
+      .cta-section h2 { font-size: 38px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 32px; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
